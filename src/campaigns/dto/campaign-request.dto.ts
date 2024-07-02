@@ -1,17 +1,17 @@
 import { IsDateString, IsEnum, IsNotEmpty, IsString, MinDate, ValidateIf } from 'class-validator';
 
-export class CreateCampaignDto {
+export class CampaignRequestDto {
     @IsNotEmpty()
     @IsString()
     nome: string;
 
     @IsDateString()
     @MinDate(new Date())
-    dataInicio: Date;
+    dataInicio: string;
 
     @IsDateString()
     @ValidateIf(o => o.dataFim > o.dataInicio)
-    dataFim: Date;
+    dataFim: string;
 
     @IsEnum(['ativa', 'pausada', 'expirada'])
     status: string;

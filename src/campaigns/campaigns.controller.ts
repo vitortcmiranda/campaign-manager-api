@@ -1,15 +1,14 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { CampaignsService } from './campaigns.service';
-import { CreateCampaignDto } from './dto/create-campaign.dto';
-import { UpdateCampaignDto } from './dto/update-campaign.dto';
+import { CampaignRequestDto } from './dto/campaign-request.dto';
 
 @Controller('campaigns')
 export class CampaignsController {
   constructor(private readonly campaignsService: CampaignsService) {}
 
   @Post()
-  create(@Body() createCampaignDto: CreateCampaignDto) {
-    return this.campaignsService.create(createCampaignDto);
+  create(@Body() CampaignRequestDto: CampaignRequestDto) {
+    return this.campaignsService.create(CampaignRequestDto);
   }
 
   @Get()
@@ -18,8 +17,8 @@ export class CampaignsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCampaignDto: UpdateCampaignDto) {
-    return this.campaignsService.update(id, updateCampaignDto);
+  update(@Param('id') id: string, @Body() CampaignRequestDto: CampaignRequestDto) {
+    return this.campaignsService.update(id, CampaignRequestDto);
   }
 
   @Delete(':id')
