@@ -53,3 +53,8 @@ Create and bring up the docker images
    ```bash
    docker-compose up -d --build
    ```
+
+
+ ```bash
+   docker exec -it postgres_container psql -U postgres -d postgres
+   ```

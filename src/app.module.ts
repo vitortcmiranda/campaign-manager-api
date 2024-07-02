@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { PostgresTypeOrmConfigService } from './database/services/postgres-type-orm-config.service';
+import { CampaignsModule } from './campaigns/campaigns.module';
 import configuration from './config/configuration';
 import * as Joi from 'joi';
 
@@ -31,6 +32,7 @@ import * as Joi from 'joi';
       },
     }),
     DatabaseModule,
+    CampaignsModule,
   ],
   controllers: [AppController],
   providers: [AppService, PostgresTypeOrmConfigService],
